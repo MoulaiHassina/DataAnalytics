@@ -1,0 +1,36 @@
+{
+	"output_file": "data/clean_data/database.json",
+	"main_column": "email_address",
+	"dataset": [ {
+		"file_name": "data/agency_foia_contacts.csv",
+		"relevant_columns": ["email_address", "name", "title", "department"],
+		"email_column": "email_address",
+		"file_type": "csv",
+		"merge_columns":[{ "columns": ["title", "department"], "merged_name":"job_title"}],
+		"rename_columns":{ }
+	}, {
+		"file_name": "data/dept_foia_contacts.csv",
+		"relevant_columns": ["email_address", "name", "title", "department"],
+		"email_column": "email_address",
+		"file_type": "csv",
+		"merge_columns":[{ "columns": ["title", "department"], "merged_name":"job_title"}],
+		"rename_columns":{}
+	}, {
+		"file_name": "data/open_data_contact_list_1.csv",
+		"relevant_columns": ["email_address", "first_name", "last_name", "role", "department"],
+		"email_column": "email_address",
+		"file_type": "csv",
+		"merge_columns":[{ "columns": ["role", "department"], "merged_name":"job_title"}, 
+			{ "columns": ["first_name", "last_name"], "merged_name":"name"}],
+		"rename_columns":{}
+	},  {
+		"file_name": "data/cuts.xls",
+		"relevant_columns": ["Email", "First Name", "Last Name", "Business/Company"],
+		"email_column": "Email",
+		"file_type": "xlsx",
+		"merge_columns":[ 
+			{ "columns": ["Last Name", "First Name"], "merged_name":"name"}]
+		,
+		"rename_columns":{ "Email": "email_address", "Business/Company": "job_title"}
+	}]
+}
